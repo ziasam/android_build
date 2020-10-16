@@ -295,8 +295,8 @@ FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 -include vendor/extra/BoardConfigExtra.mk
 
-ifneq ($(REVENGEOS_BUILD),)
-include vendor/revengeos/config/BoardConfigRevengeOS.mk
+ifneq ($(KANGOS_BUILD),)
+include vendor/kangos/config/BoardConfigKangOS.mk
 endif
 
 # General entries for project pathmap.  Any entries listed here should
@@ -1255,10 +1255,10 @@ endif
 DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
 .KATI_READONLY := DEFAULT_DATA_OUT_MODULES
 
-ifneq ($(REVENGEOS_BUILD),)
+ifneq ($(KANGOS_BUILD),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
-$(eval include device/revengeos/sepolicy/common/sepolicy.mk)
+$(eval include device/kangos/sepolicy/common/sepolicy.mk)
 endif
 
 # Include any vendor specific config.mk file
